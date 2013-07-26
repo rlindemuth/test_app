@@ -1,0 +1,12 @@
+<h1>Ryah baby</h1>
+<h2>(so effin hot)</h2>
+<p>Check out my <%= link_to 'users', users_path %></p>
+
+<h3>First three users:</h3>
+<ul>
+  <% User.first(3).each do |user| %>
+    <li><%= link_to user.name, user_path(user) %></li>    
+  <% end %>
+</ul>
+
+<h4>It is now <%= Time.now %>, which is <%= distance_of_time_in_words Time.now, Date.parse("August 4") %> until Ryah's birthday!</h4>
