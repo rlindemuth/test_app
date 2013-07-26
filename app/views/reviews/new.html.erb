@@ -1,0 +1,8 @@
+<h1>Leave a review</h1>
+
+<%= form_for(:review, :url => reviews_path) do |f| %>
+  <p><%= f.label :reviewer_id %> <%= f.select :reviewer_id, options_from_collection_for_select(@users, :id, :name) %>
+  <p><%= f.label :reviewed_user_id %> <%= f.select :reviewed_user_id, options_from_collection_for_select(@users, :id, :name, params[:user_id]) %></p>
+  <p><%= f.text_area :review_text, :rows => 5, :cols => 30 %></p>
+  <%= submit_tag "Leave Review" %>
+<% end %>

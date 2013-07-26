@@ -20,5 +20,14 @@
   <%= @user.active %>
 </p>
 
+<h3>Received reviews</h3>
+<ul>
+  <% @user.received_reviews.each do |review| %>
+    <li><%= review.review_text %> - <i><%= link_to review.reviewer.name, user_path(review.reviewer) %></i>
+  <% end %>
+</ul>
+
+<p><%= link_to "Create a new review for #{@user.name}", new_review_path(:user_id => @user.id) %></p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
